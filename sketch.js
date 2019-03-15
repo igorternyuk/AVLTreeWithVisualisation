@@ -11,12 +11,16 @@ var keyHandlers = {};
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight);
-    frameRate(10);
+    frameRate(2);
     tree = new AVLTree();
-    tree.insert(50);
-    tree.walk(tree.root, (node, level) => {
-      console.log("node.data = " + node.data + " level = " + level);
-    }, 0);
+    for(let i = 0; i < 36; ++i){
+        tree.insert(floor(random() * 900 + 100));
+    }
+    //tree.insert(50);
+    //tree.insert(20);
+    //tree.insert(60);
+    //tree.insert(70);
+    //tree.insert(65);
 
     createKeyHandlers();
     console.log("tree.getMaxHeight() = " +  tree.getMaxHeight());
@@ -56,7 +60,6 @@ function createKeyHandlers(){
     animationActive = true;
   };
 }
-
 
 //main loop
 function draw() {
