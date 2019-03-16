@@ -148,11 +148,22 @@ class AVLTree {
 
     getPredecessor(rootNode){
         if(!rootNode){
-            return;
+            return null;
         };
         let currNode = rootNode.leftChild;
-        while(currNode.rightChild !== null){
+        while(currNode.rightChild){
             currNode = currNode.rightChild;
+        }
+        return currNode;
+    }
+
+    getSuccessor(rootNode){
+        if(!rootNode){
+            return null;
+        }
+        let currNode = rootNode.rightChild;
+        while(currNode.leftChild){
+            currNode = currNode.leftChild;
         }
         return currNode;
     }
@@ -226,11 +237,14 @@ class AVLTree {
         if(root.highlighted){
             fill(255, 255, 0);
         } else {
-            //fill(38,127,0);
             if(root.data === this.getMax()){
                 fill(255,0,0);
             } else if(root.data === this.getMin()){
                 fill(38,127,0);
+            } else if(root === this.getPredecessor(this.root)){
+                fill(240,74,17);
+            } else if(root === this.getSuccessor(this.root)){
+                fill(17,240,55);
             } else{
                 fill(0,148,255);
             }

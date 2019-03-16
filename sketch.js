@@ -13,14 +13,9 @@ function setup() {
     createCanvas(canvasWidth, canvasHeight);
     frameRate(2);
     tree = new AVLTree();
-    for(let i = 0; i < 36; ++i){
+    for(let i = 0; i < 42; ++i){
         tree.insert(floor(random() * 900 + 100));
     }
-    //tree.insert(50);
-    //tree.insert(20);
-    //tree.insert(60);
-    //tree.insert(70);
-    //tree.insert(65);
 
     createKeyHandlers();
     console.log("tree.getMaxHeight() = " +  tree.getMaxHeight());
